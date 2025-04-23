@@ -1,15 +1,15 @@
 from transformers import GPTNeoXForCausalLM, AutoTokenizer
 
 model = GPTNeoXForCausalLM.from_pretrained(
-  "EleutherAI/pythia-70m-deduped",
+  "EleutherAI/pythia-1.4b-deduped",
   revision="step143000",
-  cache_dir="./pythia-70m-deduped/",
+  cache_dir="./models/pythia-1.4b-deduped/",
 )
 
 tokenizer = AutoTokenizer.from_pretrained(
-  "EleutherAI/pythia-70m-deduped",
+  "EleutherAI/pythia-1.4b-deduped",
   revision="step143000",
-  cache_dir="./pythia-70m-deduped/",
+  cache_dir="./models/pythia-1.4b-deduped/",
 )
 
 inputs = tokenizer("Hello, I am", return_tensors="pt")

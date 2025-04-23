@@ -1,13 +1,14 @@
 import yaml
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import torch
+import json
 
-model_path = "./interpret/models/model-gpt2"
+model_path = "./models/model-gpt2"
 base_model = GPT2LMHeadModel.from_pretrained(model_path)
-ft_model = GPT2LMHeadModel.from_pretrained("./interpret/models/finetuned-gpt2")
+ft_model = GPT2LMHeadModel.from_pretrained("./models/finetuned-gpt2_gab")
 tokenizer = GPT2Tokenizer.from_pretrained(model_path)
 
-with open("./interpret/data/first_plot_questions.yaml") as f:
+with open("./data/first_plot_questions.yaml") as f:
     eval_data = yaml.safe_load(f)
 
 if tokenizer.pad_token is None:
@@ -48,5 +49,5 @@ for question in eval_data:
         "finetuned": ft_response
     }
 
-with open("./interpret/results/gpt_output.json", "w") as f:
+with open("./results/gpt_output_gab.json", "w") as f:
     json.dump(results, f, indent=2)

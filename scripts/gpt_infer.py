@@ -2,7 +2,7 @@ from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import torch
 import os
 
-model_path = "./interpret/models/model-gpt2"
+model_path = "./models/finetuned-gpt2_gab"
 tokenizer = GPT2Tokenizer.from_pretrained(model_path)
 model = GPT2LMHeadModel.from_pretrained(model_path)
 
